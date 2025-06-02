@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 
 export default function Home() {
   const [produto, setProduto] = useState({
@@ -19,67 +20,13 @@ export default function Home() {
   };
 
   return (
-    <main className="flex flex-col items-center p-8 bg-green-50 min-h-screen">
-      <h2 className="text-3xl font-bold text-green-800 mb-6">Cadastro de Produto</h2>
-
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-6 rounded-2xl shadow-md w-full max-w-xl space-y-4"
-      >
-        <div>
-          <label className="block text-green-900 font-semibold mb-1">Nome do Produto</label>
-          <input
-            type="text"
-            name="nome"
-            value={produto.nome}
-            onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-400"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="block text-green-900 font-semibold mb-1">Descrição</label>
-          <textarea
-            name="descricao"
-            value={produto.descricao}
-            onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded resize-none h-24 focus:outline-none focus:ring-2 focus:ring-green-400"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="block text-green-900 font-semibold mb-1">Preço (R$)</label>
-          <input
-            type="number"
-            step="0.01"
-            name="preco"
-            value={produto.preco}
-            onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-400"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="block text-green-900 font-semibold mb-1">Categoria</label>
-          <input
-            type="text"
-            name="categoria"
-            value={produto.categoria}
-            onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-400"
-          />
-        </div>
-
-        <button
-          type="submit"
-          className="bg-green-700 hover:bg-green-800 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
-        >
-          cadastrar Produto
-        </button>
-      </form>
-    </main>
+    <div className="bg-green-50 text-green-900 flex flex-col items-center justify-center min-h-screen">
+      <h1 className="text-4xl font-bold mb-4">Seja Bem Vindo!</h1>
+      <p className="text-lg mb-6">Cadastre aqui suas categorias de produtos</p>
+      
+      <Link to="/criar" className="border-2 border-green-80 px-6 py-2 rounded hover:bg-green-100 hover:text-green-900 transition-colors">
+        Criar Categoria
+      </Link>
+    </div>
   );
 }
